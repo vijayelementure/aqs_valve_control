@@ -5,7 +5,7 @@ import time
 
 start_time = time.time()
 
-MONGODB_URI = os.getenv("MONGO_DB_DEV_URI")
+MONGODB_URI = os.getenv("AQUESA_DB_PROD_URI")
 DATABASE_NAME = os.getenv("DB_NAME")
 AQS_VALVE_LOG = os.getenv("AQS_VALVE_LOG")
 AQS_VALVE_STATUS = os.getenv("AQS_VALVE_STATUS")
@@ -35,7 +35,6 @@ def lambda_handler(event, context):
         valve_log_coll.update_one(query, update)
 
         req_op = valve_log_coll.find_one(query)
-        print(req_op)
 
         if flag == "success":
             status_query = {"device_id": device_id}
