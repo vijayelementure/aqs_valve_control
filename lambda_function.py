@@ -5,7 +5,7 @@ import time
 
 start_time = time.time()
 
-MONGODB_URI = os.getenv("AQUESA_DB_PROD_URI")
+MONGODB_URI = os.getenv("AQUESA_DB_STAGE_URI")
 DATABASE_NAME = os.getenv("DB_NAME")
 AQS_VALVE_LOG = os.getenv("AQS_VALVE_LOG")
 AQS_VALVE_STATUS = os.getenv("AQS_VALVE_STATUS")
