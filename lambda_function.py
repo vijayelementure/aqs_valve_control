@@ -23,9 +23,9 @@ def lambda_handler(event, context):
     valve_status_coll = db[AQS_VALVE_STATUS]
     try:
         # threading.Thread(target=handle_database_operation, args=(data,)).start()  # Noqa
-        flag_toUpdate = "success" if event["result"] == "SUCCESS" else "failure" # noqa
-        request_id = uuid.UUID(event["requestId"])
-        device_id = uuid.UUID(event["uuid"])
+        flag_toUpdate = "success" if event["data"]["vs"]["val"] == 1 else "failure" # noqa
+        request_id = uuid.UUID(event["meta"]["requestId"])
+        device_id = uuid.UUID(event["data"]["devId"])
         flag = flag_toUpdate
         query = {
                 "request_id": request_id,
